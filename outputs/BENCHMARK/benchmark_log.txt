@@ -1,0 +1,24 @@
+
+==============================================================================
+BENCHMARK LOG
+==============================================================================
+Lệnh: python benchmark.py --results outputs/EXP_BASELINE_ALL/summary/results_summary_test.csv
+Thời điểm: 2026-11-17 09:35:06
+results : outputs/EXP_BASELINE_ALL/summary/results_summary_test.csv  sha256=4f44d6df0f3414be5fb61ace8ca3effe0f1dbd06bb36517217c96232c4a9948e
+related : data/related_work.csv  sha256=4a78883c5cf4ac6280f42dc48cd3841ebb468e624ea23f709925a9b32f3f07fe
+
+------------------------------------------------------------------------------
+BẢNG ĐỐI SÁNH
+------------------------------------------------------------------------------
+                                                     study  year                                          method                 xai                                                                dataset           comparable  accuracy  precision   recall       f1  roc_auc
+                      Nghiên cứu này - Logistic Regression  2026                             Logistic Regression TreeSHAP/LinearSHAP                               Telco IBM 7.043 mẫu, test 20% stratified yes (cùng giao thức)  0.765082   0.544885 0.697861 0.611958 0.842202
+                            Nghiên cứu này - Decision Tree  2026                                   Decision Tree TreeSHAP/LinearSHAP                               Telco IBM 7.043 mẫu, test 20% stratified yes (cùng giao thức)  0.775727   0.564444 0.679144 0.616505 0.829166
+                            Nghiên cứu này - Random Forest  2026                                   Random Forest TreeSHAP/LinearSHAP                               Telco IBM 7.043 mẫu, test 20% stratified yes (cùng giao thức)  0.787793   0.597403 0.614973 0.606061 0.834921
+                                  Nghiên cứu này - XGBoost  2026                                         XGBoost TreeSHAP/LinearSHAP                               Telco IBM 7.043 mẫu, test 20% stratified yes (cùng giao thức)  0.783534   0.580796 0.663102 0.619226 0.843964
+                         Nghiên cứu này - MLP (Neural Net)  2026                                MLP (Neural Net)                   -                               Telco IBM 7.043 mẫu, test 20% stratified yes (cùng giao thức)  0.736693   0.502664 0.756684 0.604055 0.812860
+                                Nghiên cứu này - SVM (RBF)  2026                                       SVM (RBF)                   -                               Telco IBM 7.043 mẫu, test 20% stratified yes (cùng giao thức)  0.772179   0.552894 0.740642 0.633143 0.825251
+                                     Nghiên cứu này - k-NN  2026                                            k-NN                   -                               Telco IBM 7.043 mẫu, test 20% stratified yes (cùng giao thức)  0.747339   0.518750 0.665775 0.583138 0.805128
+Chang et al., Algorithms 17(6):231 (doi:10.3390/a17060231)  2024                                   Random Forest           LIME+SHAP Telecom churn, 'large dataset' (chưa xác nhận là Telco IBM 7.043 dòng)           unverified  0.916600   0.822000 0.818000      NaN      NaN
+               Christopher & Anand, IC3SE 2024, pp.534-539  2024 Logistic Regression (tốt nhất trong 11 mô hình)                none                               Telecom churn (chưa xác nhận tập cụ thể)           unverified  0.817600   0.689500 0.565700 0.621500      NaN
+
+LƯU Ý: các dòng 'unverified' chỉ là tham khảo; phải mở bài gốc xác nhận dataset, cách chia tập, ngưỡng trước khi kết luận hơn/kém.

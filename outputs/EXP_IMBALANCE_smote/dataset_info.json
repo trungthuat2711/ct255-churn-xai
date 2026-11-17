@@ -1,0 +1,115 @@
+{
+  "dataset_name": "Telco Customer Churn (IBM sample data / Kaggle)",
+  "file": "data/Telco-Customer-Churn.csv",
+  "file_md5": "3b0bfab28a8101b4e4fdd08025a5c235",
+  "n_samples": 7043,
+  "n_raw_input_features": 19,
+  "n_features_after_encoding": 40,
+  "feature_names_after_encoding": [
+    "tenure",
+    "MonthlyCharges",
+    "TotalCharges",
+    "gender_Male",
+    "Partner_Yes",
+    "Dependents_Yes",
+    "PhoneService_Yes",
+    "MultipleLines_No",
+    "MultipleLines_No phone service",
+    "MultipleLines_Yes",
+    "InternetService_DSL",
+    "InternetService_Fiber optic",
+    "InternetService_No",
+    "OnlineSecurity_No",
+    "OnlineSecurity_No internet service",
+    "OnlineSecurity_Yes",
+    "OnlineBackup_No",
+    "OnlineBackup_No internet service",
+    "OnlineBackup_Yes",
+    "DeviceProtection_No",
+    "DeviceProtection_No internet service",
+    "DeviceProtection_Yes",
+    "TechSupport_No",
+    "TechSupport_No internet service",
+    "TechSupport_Yes",
+    "StreamingTV_No",
+    "StreamingTV_No internet service",
+    "StreamingTV_Yes",
+    "StreamingMovies_No",
+    "StreamingMovies_No internet service",
+    "StreamingMovies_Yes",
+    "Contract_Month-to-month",
+    "Contract_One year",
+    "Contract_Two year",
+    "PaperlessBilling_Yes",
+    "PaymentMethod_Bank transfer (automatic)",
+    "PaymentMethod_Credit card (automatic)",
+    "PaymentMethod_Electronic check",
+    "PaymentMethod_Mailed check",
+    "SeniorCitizen"
+  ],
+  "raw_feature_groups": {
+    "numeric_scaled": [
+      "tenure",
+      "MonthlyCharges",
+      "TotalCharges"
+    ],
+    "categorical_onehot": [
+      "gender",
+      "Partner",
+      "Dependents",
+      "PhoneService",
+      "MultipleLines",
+      "InternetService",
+      "OnlineSecurity",
+      "OnlineBackup",
+      "DeviceProtection",
+      "TechSupport",
+      "StreamingTV",
+      "StreamingMovies",
+      "Contract",
+      "PaperlessBilling",
+      "PaymentMethod"
+    ],
+    "passthrough": [
+      "SeniorCitizen"
+    ]
+  },
+  "n_missing_TotalCharges_blank": 11,
+  "imputation": "zero",
+  "class_distribution_total": {
+    "n": 7043,
+    "retained(0)": 5174,
+    "churned(1)": 1869,
+    "churn_rate": 0.2654
+  },
+  "imbalance_ratio_retained_to_churn": 2.7683,
+  "split": {
+    "strategy": "stratified hold-out",
+    "test_size": 0.2,
+    "val_size": 0.1,
+    "random_state": 42,
+    "train": {
+      "n": 4929,
+      "retained(0)": 3621,
+      "churned(1)": 1308,
+      "churn_rate": 0.2654
+    },
+    "val": {
+      "n": 705,
+      "retained(0)": 518,
+      "churned(1)": 187,
+      "churn_rate": 0.2652
+    },
+    "test": {
+      "n": 1409,
+      "retained(0)": 1035,
+      "churned(1)": 374,
+      "churn_rate": 0.2654
+    }
+  },
+  "leakage_policy": "encoder/scaler/SMOTE fit on train only",
+  "smote_train_after": {
+    "n": 7242,
+    "churned(1)": 3621
+  }
+}

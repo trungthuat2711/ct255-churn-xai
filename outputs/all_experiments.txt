@@ -1,0 +1,13 @@
+2026-11-17 01:40:14 | EXP_BASELINE_ALL | all | python run_experiment.py --model-name all --imbalance class_weight --run-xai --run-eda --cv-folds 5 --tune-threshold --save-model --exp-name EXP_BASELINE_ALL
+2026-11-17 01:41:05 | EXP_IMBALANCE_none | all | python run_experiment.py --model-name all --imbalance none --run-xai --cv-folds 5 --tune-threshold --exp-name EXP_IMBALANCE_none
+2026-11-17 01:42:19 | EXP_IMBALANCE_smote | all | python run_experiment.py --model-name all --imbalance smote --run-xai --cv-folds 5 --tune-threshold --exp-name EXP_IMBALANCE_smote
+2026-11-17 09:25:32 | EXP_20261117_092514 | xgboost | python run_experiment.py --model-name xgboost --run-xai --run-eda --tune-threshold
+2026-11-17 09:27:55 | EXP_X | all | python run_experiment.py --model-name all --run-xai --run-eda --cv-folds 5 --tune-threshold --exp-name EXP_X
+2026-11-17 09:31:13 | EXP_BASELINE_ALL | all | python run_experiment.py --model-name all --imbalance class_weight --run-xai --run-eda --cv-folds 5 --tune-threshold --save-model --exp-name EXP_BASELINE_ALL
+2026-11-17 09:32:53 | EXP_IMBALANCE_none | all | python run_experiment.py --model-name all --imbalance none --run-xai --cv-folds 5 --tune-threshold --exp-name EXP_IMBALANCE_none
+2026-11-17 09:35:03 | EXP_IMBALANCE_smote | all | python run_experiment.py --model-name all --imbalance smote --run-xai --cv-folds 5 --tune-threshold --exp-name EXP_IMBALANCE_smote
+2026-11-17 10:33:47 | EXP_SEED1 | all | python run_experiment.py --model-name all --cv-folds 5 --tune-threshold --random-state 1 --exp-name EXP_SEED1
+2026-11-17 10:36:11 | EXP_SEED2 | all | python run_experiment.py --model-name all --cv-folds 5 --tune-threshold --random-state 2 --exp-name EXP_SEED2
+2026-11-17 10:38:30 | EXP_SEED3 | all | python run_experiment.py --model-name all --cv-folds 5 --tune-threshold --random-state 3 --exp-name EXP_SEED3
+2026-11-17 10:40:45 | EXP_SEED4 | all | python run_experiment.py --model-name all --cv-folds 5 --tune-threshold --random-state 4 --exp-name EXP_SEED4
+2026-11-17 10:43:00 | EXP_SEED5 | all | python run_experiment.py --model-name all --cv-folds 5 --tune-threshold --random-state 5 --exp-name EXP_SEED5

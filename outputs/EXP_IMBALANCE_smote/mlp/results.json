@@ -1,0 +1,309 @@
+{
+  "model": "mlp",
+  "model_fullname": "MLP (Neural Net)",
+  "architecture": {
+    "model_type": "MLP (Neural Net)",
+    "sklearn_class": "MLPClassifier",
+    "n_input_features": 40,
+    "layer_sizes": [
+      40,
+      64,
+      32,
+      1
+    ],
+    "hidden_activation": "relu",
+    "output_activation": "logistic",
+    "optimizer": "adam",
+    "n_parameters": 4737,
+    "epochs_run": 1
+  },
+  "hyperparameters": {
+    "activation": "relu",
+    "alpha": 0.001,
+    "batch_size": 128,
+    "beta_1": 0.9,
+    "beta_2": 0.999,
+    "early_stopping": false,
+    "epsilon": 1e-08,
+    "hidden_layer_sizes": [
+      64,
+      32
+    ],
+    "learning_rate": "constant",
+    "learning_rate_init": 0.001,
+    "max_fun": 15000,
+    "max_iter": 200,
+    "momentum": 0.9,
+    "n_iter_no_change": 10,
+    "nesterovs_momentum": true,
+    "power_t": 0.5,
+    "random_state": 42,
+    "shuffle": true,
+    "solver": "adam",
+    "tol": 0.0001,
+    "validation_fraction": 0.1,
+    "verbose": false,
+    "warm_start": false
+  },
+  "threshold": {
+    "value": 0.13,
+    "source": "tuned: max F1 on validation set"
+  },
+  "timing": {
+    "train_seconds": 6.79740309715271,
+    "inference_seconds_per_sample": 1.1668973480072996e-05,
+    "total_seconds": 28.006287574768066
+  },
+  "metrics": {
+    "train": {
+      "threshold": 0.13,
+      "accuracy": 0.7812943801988232,
+      "balanced_accuracy": 0.8447974227809745,
+      "precision": 0.5492716366752356,
+      "recall_sensitivity_tpr": 0.9801223241590215,
+      "specificity_tnr": 0.7094725214029274,
+      "npv": 0.989980732177264,
+      "fpr": 0.2905274785970726,
+      "fnr": 0.019877675840978593,
+      "f1": 0.7040087863811093,
+      "f2": 0.8472112080359503,
+      "f1_macro": 0.765292681478843,
+      "f1_weighted": 0.7940509791783881,
+      "g_mean": 0.8338883957727187,
+      "cohen_kappa": 0.5514428305219272,
+      "mcc": 0.609807882876037,
+      "iou_churn": 0.5432203389830509,
+      "iou_retained": 0.7044145873320538,
+      "mIoU": 0.6238174631575524,
+      "ap_churn(PR-AUC)": 0.8552278896868535,
+      "ap_retained": 0.9811609792465396,
+      "mAP": 0.9181944344666966,
+      "roc_auc": 0.946451298786302,
+      "gini": 0.8929025975726039,
+      "ks_statistic": 0.7625624225656149,
+      "log_loss": 0.2638171602055108,
+      "brier_score": 0.0842266070955298,
+      "ece_10bins": 0.031015401888939715,
+      "lift_top10pct": 3.5008188026871614,
+      "recall_top10pct": 0.35015290519877673,
+      "lift_top20pct": 3.1148114892904326,
+      "recall_top20pct": 0.6230886850152905,
+      "lift_top30pct": 2.7670227217745684,
+      "recall_top30pct": 0.8302752293577982,
+      "tn": 2569,
+      "fp": 1052,
+      "fn": 26,
+      "tp": 1282,
+      "confusion_matrix": [
+        [
+          2569,
+          1052
+        ],
+        [
+          26,
+          1282
+        ]
+      ]
+    },
+    "val": {
+      "threshold": 0.13,
+      "accuracy": 0.6936170212765957,
+      "balanced_accuracy": 0.7231639584580761,
+      "precision": 0.4551083591331269,
+      "recall_sensitivity_tpr": 0.786096256684492,
+      "specificity_tnr": 0.6602316602316602,
+      "npv": 0.8952879581151832,
+      "fpr": 0.33976833976833976,
+      "fnr": 0.21390374331550802,
+      "f1": 0.5764705882352941,
+      "f2": 0.6862745098039216,
+      "f1_macro": 0.668235294117647,
+      "f1_weighted": 0.7113191489361702,
+      "g_mean": 0.720420458241363,
+      "cohen_kappa": 0.36217266741501497,
+      "mcc": 0.3954638521692337,
+      "iou_churn": 0.4049586776859504,
+      "iou_retained": 0.6129032258064516,
+      "mIoU": 0.5089309517462011,
+      "ap_churn(PR-AUC)": 0.5468321241227614,
+      "ap_retained": 0.9116440103374253,
+      "mAP": 0.7292380672300933,
+      "roc_auc": 0.7895752895752896,
+      "gini": 0.5791505791505791,
+      "ks_statistic": 0.44870233105527224,
+      "log_loss": 0.6204839547625283,
+      "brier_score": 0.1794499246658324,
+      "ece_10bins": 0.13608850742780595,
+      "lift_top10pct": 2.3158899923605807,
+      "recall_top10pct": 0.22994652406417113,
+      "lift_top20pct": 2.192513368983957,
+      "recall_top20pct": 0.4385026737967914,
+      "lift_top30pct": 1.9383765513066293,
+      "recall_top30pct": 0.5828877005347594,
+      "tn": 342,
+      "fp": 176,
+      "fn": 40,
+      "tp": 147,
+      "confusion_matrix": [
+        [
+          342,
+          176
+        ],
+        [
+          40,
+          147
+        ]
+      ]
+    },
+    "test": {
+      "threshold": 0.13,
+      "accuracy": 0.6770759403832506,
+      "balanced_accuracy": 0.7144501278772378,
+      "precision": 0.44,
+      "recall_sensitivity_tpr": 0.7941176470588235,
+      "specificity_tnr": 0.6347826086956522,
+      "npv": 0.8950953678474114,
+      "fpr": 0.3652173913043478,
+      "fnr": 0.20588235294117646,
+      "f1": 0.5662535748331744,
+      "f2": 0.684016582220175,
+      "f1_macro": 0.6545230564951627,
+      "f1_weighted": 0.6959326571896794,
+      "g_mean": 0.7099944166056893,
+      "cohen_kappa": 0.34121057482934125,
+      "mcc": 0.37910748999709154,
+      "iou_churn": 0.3949468085106383,
+      "iou_retained": 0.5908273381294964,
+      "mIoU": 0.4928870733200673,
+      "ap_churn(PR-AUC)": 0.5552019931059587,
+      "ap_retained": 0.9033139918626791,
+      "mAP": 0.729257992484319,
+      "roc_auc": 0.7807099124234674,
+      "gini": 0.5614198248469349,
+      "ks_statistic": 0.4445167790436333,
+      "log_loss": 0.6543422461527131,
+      "brier_score": 0.18275018425872655,
+      "ece_10bins": 0.1366641894034102,
+      "lift_top10pct": 2.324553419046535,
+      "recall_top10pct": 0.232620320855615,
+      "lift_top20pct": 2.1375203853301477,
+      "recall_top20pct": 0.42780748663101603,
+      "lift_top30pct": 1.9772063564303863,
+      "recall_top30pct": 0.5935828877005348,
+      "tn": 657,
+      "fp": 378,
+      "fn": 77,
+      "tp": 297,
+      "confusion_matrix": [
+        [
+          657,
+          378
+        ],
+        [
+          77,
+          297
+        ]
+      ]
+    }
+  },
+  "cross_validation": {
+    "accuracy": {
+      "mean": 0.6674799476941136,
+      "std": 0.012182887517209699
+    },
+    "balanced_accuracy": {
+      "mean": 0.7023578569269061,
+      "std": 0.015948165086143933
+    },
+    "precision": {
+      "mean": 0.4299783777615632,
+      "std": 0.012162080533943236
+    },
+    "recall_sensitivity_tpr": {
+      "mean": 0.7767160948787692,
+      "std": 0.0342059324329653
+    },
+    "specificity_tnr": {
+      "mean": 0.6279996189750429,
+      "std": 0.0166899323726836
+    },
+    "f1": {
+      "mean": 0.5534017730475874,
+      "std": 0.016930859215464687
+    },
+    "f2": {
+      "mean": 0.6686990281988798,
+      "std": 0.024424775609320257
+    },
+    "g_mean": {
+      "mean": 0.6981601442713404,
+      "std": 0.014888547426206497
+    },
+    "cohen_kappa": {
+      "mean": 0.3217740432089845,
+      "std": 0.02407560897122121
+    },
+    "mcc": {
+      "mean": 0.3578612514936268,
+      "std": 0.027975357388665904
+    },
+    "iou_churn": {
+      "mean": 0.3827047189887023,
+      "std": 0.016109550058241617
+    },
+    "mIoU": {
+      "mean": 0.481925768262797,
+      "std": 0.01331990225806772
+    },
+    "ap_churn(PR-AUC)": {
+      "mean": 0.5326304623382507,
+      "std": 0.031057318668758903
+    },
+    "mAP": {
+      "mean": 0.7146937273863853,
+      "std": 0.01872819278251687
+    },
+    "roc_auc": {
+      "mean": 0.7708213631391557,
+      "std": 0.01939693587368899
+    },
+    "gini": {
+      "mean": 0.5416427262783114,
+      "std": 0.03879387174737798
+    },
+    "ks_statistic": {
+      "mean": 0.43608681875024136,
+      "std": 0.047931877198625183
+    },
+    "log_loss": {
+      "mean": 0.7452512523358402,
+      "std": 0.039570281783125785
+    },
+    "brier_score": {
+      "mean": 0.19759609932277722,
+      "std": 0.0067822327391767025
+    },
+    "ece_10bins": {
+      "mean": 0.1620696528136516,
+      "std": 0.006942491607771437
+    },
+    "lift_top10pct": {
+      "mean": 2.334051522236383,
+      "std": 0.20954738916730675
+    },
+    "recall_top20pct": {
+      "mean": 0.42809511274896905,
+      "std": 0.02889035186753183
+    }
+  },
+  "xai": {
+    "skipped": "SHAP chưa cấu hình cho MLP (Neural Net) (chỉ ['xgboost', 'rforest', 'dtree', 'logreg'])"
+  },
+  "history_summary": {
+    "x_label": "epoch",
+    "n_points": 100,
+    "best_val_loss": 0.4411877616483835,
+    "best_val_at": 11,
+    "final_train_loss": 0.23766372576175313
+  }
+}

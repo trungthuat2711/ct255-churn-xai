@@ -1,0 +1,5 @@
+artifact,type,model,description,generated_by,command,sha256
+benchmark_table.csv,csv,,Bảng đối sánh với nghiên cứu liên quan,benchmark.py:main:L46,python benchmark.py --results outputs/EXP_BASELINE_ALL/summary/results_summary_test.csv,90e27a3554f1de3161190af08674113342a2a21119bd46147b1373b4729f0143
+benchmark_table.md,md,,Bảng đối sánh dạng Markdown,benchmark.py:main:L55,python benchmark.py --results outputs/EXP_BASELINE_ALL/summary/results_summary_test.csv,a2204ee99dd5d4f981602a3da3d80d39e2d4b52990153b575146e4c05d765a66
+benchmark_chart.png,png,,Biểu đồ đối sánh Accuracy/F1 với nghiên cứu liên quan,benchmark.py:main:L70,python benchmark.py --results outputs/EXP_BASELINE_ALL/summary/results_summary_test.csv,ac86f6f8ee793a6d96dac722ced35566e1616cbc0f4b2dffa54262b53d6c85bb
+benchmark_log.txt,txt,,Log đối sánh,benchmark.py:main:L77,python benchmark.py --results outputs/EXP_BASELINE_ALL/summary/results_summary_test.csv,232a97371aac2b21ef6120cc856e1174e13b9d84c778922dc1beedef4cfb519b

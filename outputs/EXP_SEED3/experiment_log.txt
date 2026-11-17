@@ -1,0 +1,135 @@
+
+==============================================================================
+EXPERIMENT LOG - EXP_SEED3
+==============================================================================
+
+Lệnh chạy : python run_experiment.py --model-name all --cv-folds 5 --tune-threshold --random-state 3 --exp-name EXP_SEED3
+Bắt đầu   : 2026-11-17 10:36:16
+Thời gian : 134.2s
+
+------------------------------------------------------------------------------
+MÔI TRƯỜNG
+------------------------------------------------------------------------------
+
+  python: 3.12.4
+  platform: Windows-11-10.0.26200-SP0
+  numpy: 2.5.5
+  pandas: 3.1.1
+  sklearn: 1.9.1
+  xgboost: 3.4.1
+  shap: 0.54.1
+  imblearn: 0.14.2
+  matplotlib: 3.11.2
+  scipy: 1.18.1
+
+------------------------------------------------------------------------------
+THAM SỐ DÒNG LỆNH
+------------------------------------------------------------------------------
+
+  data_path: data/Telco-Customer-Churn.csv
+  target: Churn
+  id_col: customerID
+  test_size: 0.200000
+  val_size: 0.100000
+  random_state: 3
+  impute: zero
+  imbalance: class_weight
+  model_name: all
+  n_estimators: 200
+  max_depth: 4
+  min_samples_leaf: 5
+  learning_rate: 0.050000
+  mlp_lr: 0.001000
+  scale_pos_weight: None
+  subsample: 0.800000
+  colsample_bytree: 0.800000
+  reg_lambda: 1.000000
+  C: 1.000000
+  k_neighbors: 15
+  hidden_sizes: 64,32
+  epochs: 100
+  batch_size: 128
+  threshold: 0.500000
+  tune_threshold: True
+  cv_folds: 5
+  bins: 30
+  run_xai: False
+  xai_index: 0
+  xai_sample: 300
+  xai_noise: 0.050000
+  output_dir: outputs
+  exp_name: EXP_SEED3
+  run_eda: False
+  save_model: False
+  n_jobs: -1
+
+------------------------------------------------------------------------------
+DỮ LIỆU
+------------------------------------------------------------------------------
+
+  dataset_name: Telco Customer Churn (IBM sample data / Kaggle)
+  file: data/Telco-Customer-Churn.csv
+  file_md5: 3b0bfab28a8101b4e4fdd08025a5c235
+  n_samples: 7043
+  n_raw_input_features: 19
+  n_features_after_encoding: 40
+  raw_feature_groups:
+    numeric_scaled: ['tenure', 'MonthlyCharges', 'TotalCharges']
+    categorical_onehot: ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod']
+    passthrough: ['SeniorCitizen']
+  n_missing_TotalCharges_blank: 11
+  imputation: zero
+  class_distribution_total:
+    n: 7043
+    retained(0): 5174
+    churned(1): 1869
+    churn_rate: 0.265400
+  imbalance_ratio_retained_to_churn: 2.768300
+  split:
+    strategy: stratified hold-out
+    test_size: 0.200000
+    val_size: 0.100000
+    random_state: 3
+    train:
+      n: 4929
+      retained(0): 3621
+      churned(1): 1308
+      churn_rate: 0.265400
+    val:
+      n: 705
+      retained(0): 518
+      churned(1): 187
+      churn_rate: 0.265200
+    test:
+      n: 1409
+      retained(0): 1035
+      churned(1): 374
+      churn_rate: 0.265400
+  leakage_policy: encoder/scaler/SMOTE fit on train only
+
+------------------------------------------------------------------------------
+BẢNG TỔNG HỢP (TEST)
+------------------------------------------------------------------------------
+
+              model  threshold  accuracy  balanced_accuracy  precision  recall_sensitivity_tpr  specificity_tnr     f1     f2  g_mean  cohen_kappa    mcc  iou_churn   mIoU  ap_churn(PR-AUC)    mAP  roc_auc   gini  ks_statistic  log_loss  brier_score  ece_10bins  lift_top10pct  recall_top20pct  train_accuracy  train_f1  train_roc_auc  gap_f1(train-test)  gap_auc(train-test)  train_seconds  cv_accuracy_mean  cv_accuracy_std  cv_f1_mean  cv_f1_std  cv_roc_auc_mean  cv_roc_auc_std  cv_mcc_mean  cv_mcc_std
+Logistic Regression       0.52    0.7587             0.7555     0.5323                  0.7487           0.7623 0.6222 0.6924  0.7555       0.4523 0.4665     0.4516 0.5752            0.6327 0.7838   0.8403 0.6806        0.5313    0.4803       0.1614      0.1281         2.7788           0.4840          0.7594    0.6364         0.8505              0.0142               0.0102         2.4081            0.7580           0.0171      0.6340     0.0229           0.8466          0.0142       0.4844      0.0350
+      Decision Tree       0.48    0.7516             0.7387     0.5236                  0.7112           0.7662 0.6032 0.6637  0.7382       0.4284 0.4390     0.4318 0.5628            0.5851 0.7506   0.8205 0.6409        0.4831    0.5035       0.1705      0.1336         2.5917           0.4733          0.7657    0.6328         0.8426              0.0296               0.0221         0.5486            0.7091           0.0377      0.5991     0.0271           0.8292          0.0142       0.4327      0.0419
+      Random Forest       0.62    0.7786             0.7315     0.5756                  0.6310           0.8319 0.6020 0.6191  0.7245       0.4491 0.4500     0.4307 0.5823            0.6304 0.7818   0.8328 0.6656        0.5103    0.4961       0.1666      0.1448         2.5917           0.4920          0.7963    0.6480         0.8531              0.0459               0.0203         1.7060            0.7866           0.0121      0.6327     0.0191           0.8430          0.0105       0.4876      0.0274
+            XGBoost       0.46    0.7502             0.7591     0.5196                  0.7781           0.7401 0.6231 0.7077  0.7588       0.4472 0.4676     0.4526 0.5689            0.6465 0.7906   0.8386 0.6773        0.5204    0.4712       0.1583      0.1089         2.8055           0.4733          0.7941    0.6980         0.9040              0.0749               0.0654         1.8348            0.7480           0.0084      0.6273     0.0154           0.8415          0.0119       0.4750      0.0249
+   MLP (Neural Net)       0.36    0.7374             0.7068     0.5042                  0.6417           0.7720 0.5647 0.6085  0.7038       0.3806 0.3862     0.3934 0.5385            0.5582 0.7358   0.7958 0.5916        0.4613    0.5551       0.1703      0.1084         2.4314           0.4465          0.8608    0.7727         0.9431              0.2080               0.1473         8.5511            0.7580           0.0135      0.5770     0.0181           0.8004          0.0147       0.4115      0.0251
+          SVM (RBF)       0.37    0.7665             0.7454     0.5470                  0.7005           0.7903 0.6143 0.6633  0.7441       0.4505 0.4576     0.4433 0.5782            0.5824 0.7457   0.8118 0.6236        0.5032    0.4574       0.1479      0.0286         2.5383           0.4733          0.7961    0.6725         0.8723              0.0582               0.0605         7.6902            0.7764           0.0063      0.6351     0.0159           0.8236          0.0132       0.4874      0.0224
+               k-NN       0.27    0.7268             0.7252     0.4900                  0.7219           0.7285 0.5838 0.6595  0.7252       0.3913 0.4076     0.4122 0.5371            0.5521 0.7317   0.7999 0.5999        0.4774    0.6586       0.1592      0.0679         2.5650           0.4358          0.9974    0.9951         1.0000              0.4113               0.2000         0.0061            0.7147           0.0044      0.5917     0.0093           0.8089          0.0128       0.4193      0.0147
+
+------------------------------------------------------------------------------
+ĐỘ ĐO KHÔNG ÁP DỤNG
+------------------------------------------------------------------------------
+
+  CMC: chỉ dùng cho bài toán nhận dạng/re-identification (xếp hạng khớp danh tính), không phải phân loại nhị phân Churn
+  PSNR/SSIM/BER/Payload: độ đo cho ẩn tin (steganography) trên ảnh/âm thanh, không liên quan dữ liệu bảng Churn
+  IoU/mAP (detection): dạng detection (bounding box) không áp dụng; dùng IoU/AP phiên bản phân loại nhị phân
+
+------------------------------------------------------------------------------
+THƯ MỤC KẾT QUẢ
+------------------------------------------------------------------------------
+
+Xem artifact_index.csv: mỗi hình/bảng ↔ file code:hàm:dòng sinh ra nó.

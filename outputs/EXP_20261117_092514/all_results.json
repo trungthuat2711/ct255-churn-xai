@@ -1,0 +1,520 @@
+{
+  "args": {
+    "data_path": "data/Telco-Customer-Churn.csv",
+    "target": "Churn",
+    "id_col": "customerID",
+    "test_size": 0.2,
+    "val_size": 0.1,
+    "random_state": 42,
+    "impute": "zero",
+    "imbalance": "class_weight",
+    "model_name": "xgboost",
+    "n_estimators": 200,
+    "max_depth": 4,
+    "min_samples_leaf": 5,
+    "learning_rate": 0.05,
+    "mlp_lr": 0.001,
+    "scale_pos_weight": null,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 1.0,
+    "C": 1.0,
+    "k_neighbors": 15,
+    "hidden_sizes": "64,32",
+    "epochs": 100,
+    "batch_size": 128,
+    "threshold": 0.5,
+    "tune_threshold": true,
+    "cv_folds": 5,
+    "bins": 30,
+    "run_xai": true,
+    "xai_index": 0,
+    "xai_sample": 300,
+    "xai_noise": 0.05,
+    "output_dir": "outputs",
+    "exp_name": null,
+    "run_eda": true,
+    "save_model": false,
+    "n_jobs": -1
+  },
+  "env": {
+    "python": "3.12.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "sklearn": "1.9.1",
+    "xgboost": "3.4.1",
+    "shap": "0.54.1",
+    "imblearn": "0.14.2",
+    "matplotlib": "3.11.2",
+    "scipy": "1.18.1"
+  },
+  "dataset": {
+    "dataset_name": "Telco Customer Churn (IBM sample data / Kaggle)",
+    "file": "data/Telco-Customer-Churn.csv",
+    "file_md5": "3b0bfab28a8101b4e4fdd08025a5c235",
+    "n_samples": 7043,
+    "n_raw_input_features": 19,
+    "n_features_after_encoding": 40,
+    "feature_names_after_encoding": [
+      "tenure",
+      "MonthlyCharges",
+      "TotalCharges",
+      "gender_Male",
+      "Partner_Yes",
+      "Dependents_Yes",
+      "PhoneService_Yes",
+      "MultipleLines_No",
+      "MultipleLines_No phone service",
+      "MultipleLines_Yes",
+      "InternetService_DSL",
+      "InternetService_Fiber optic",
+      "InternetService_No",
+      "OnlineSecurity_No",
+      "OnlineSecurity_No internet service",
+      "OnlineSecurity_Yes",
+      "OnlineBackup_No",
+      "OnlineBackup_No internet service",
+      "OnlineBackup_Yes",
+      "DeviceProtection_No",
+      "DeviceProtection_No internet service",
+      "DeviceProtection_Yes",
+      "TechSupport_No",
+      "TechSupport_No internet service",
+      "TechSupport_Yes",
+      "StreamingTV_No",
+      "StreamingTV_No internet service",
+      "StreamingTV_Yes",
+      "StreamingMovies_No",
+      "StreamingMovies_No internet service",
+      "StreamingMovies_Yes",
+      "Contract_Month-to-month",
+      "Contract_One year",
+      "Contract_Two year",
+      "PaperlessBilling_Yes",
+      "PaymentMethod_Bank transfer (automatic)",
+      "PaymentMethod_Credit card (automatic)",
+      "PaymentMethod_Electronic check",
+      "PaymentMethod_Mailed check",
+      "SeniorCitizen"
+    ],
+    "raw_feature_groups": {
+      "numeric_scaled": [
+        "tenure",
+        "MonthlyCharges",
+        "TotalCharges"
+      ],
+      "categorical_onehot": [
+        "gender",
+        "Partner",
+        "Dependents",
+        "PhoneService",
+        "MultipleLines",
+        "InternetService",
+        "OnlineSecurity",
+        "OnlineBackup",
+        "DeviceProtection",
+        "TechSupport",
+        "StreamingTV",
+        "StreamingMovies",
+        "Contract",
+        "PaperlessBilling",
+        "PaymentMethod"
+      ],
+      "passthrough": [
+        "SeniorCitizen"
+      ]
+    },
+    "n_missing_TotalCharges_blank": 11,
+    "imputation": "zero",
+    "class_distribution_total": {
+      "n": 7043,
+      "retained(0)": 5174,
+      "churned(1)": 1869,
+      "churn_rate": 0.2654
+    },
+    "imbalance_ratio_retained_to_churn": 2.7683,
+    "split": {
+      "strategy": "stratified hold-out",
+      "test_size": 0.2,
+      "val_size": 0.1,
+      "random_state": 42,
+      "train": {
+        "n": 4929,
+        "retained(0)": 3621,
+        "churned(1)": 1308,
+        "churn_rate": 0.2654
+      },
+      "val": {
+        "n": 705,
+        "retained(0)": 518,
+        "churned(1)": 187,
+        "churn_rate": 0.2652
+      },
+      "test": {
+        "n": 1409,
+        "retained(0)": 1035,
+        "churned(1)": 374,
+        "churn_rate": 0.2654
+      }
+    },
+    "leakage_policy": "encoder/scaler/SMOTE fit on train only"
+  },
+  "results": {
+    "xgboost": {
+      "model": "xgboost",
+      "model_fullname": "XGBoost",
+      "architecture": {
+        "model_type": "XGBoost",
+        "sklearn_class": "XGBClassifier",
+        "n_input_features": 40,
+        "n_boosted_rounds": 200,
+        "booster": "gbtree",
+        "objective": "binary:logistic",
+        "tree_method": "hist"
+      },
+      "hyperparameters": {
+        "objective": "binary:logistic",
+        "base_score": null,
+        "booster": null,
+        "callbacks": null,
+        "colsample_bylevel": null,
+        "colsample_bynode": null,
+        "colsample_bytree": 0.8,
+        "device": null,
+        "early_stopping_rounds": null,
+        "enable_categorical": true,
+        "eval_metric": [
+          "logloss",
+          "error"
+        ],
+        "feature_types": null,
+        "feature_weights": null,
+        "gamma": null,
+        "grow_policy": null,
+        "importance_type": null,
+        "interaction_constraints": null,
+        "learning_rate": 0.05,
+        "max_bin": null,
+        "max_cat_threshold": null,
+        "max_cat_to_onehot": null,
+        "max_delta_step": null,
+        "max_depth": 4,
+        "max_leaves": null,
+        "min_child_weight": null,
+        "missing": null,
+        "monotone_constraints": null,
+        "multi_strategy": null,
+        "n_estimators": 200,
+        "n_jobs": -1,
+        "num_parallel_tree": null,
+        "random_state": 42,
+        "reg_alpha": null,
+        "reg_lambda": 1.0,
+        "sampling_method": null,
+        "scale_pos_weight": 2.768348623853211,
+        "subsample": 0.8,
+        "tree_method": "hist",
+        "validate_parameters": null,
+        "verbosity": null
+      },
+      "threshold": {
+        "value": 0.63,
+        "source": "tuned: max F1 on validation set"
+      },
+      "timing": {
+        "train_seconds": 1.2595436573028564,
+        "inference_seconds_per_sample": 1.0699054888582466e-05,
+        "total_seconds": 11.773086547851562
+      },
+      "metrics": {
+        "train": {
+          "threshold": 0.63,
+          "accuracy": 0.8277541083384053,
+          "balanced_accuracy": 0.7965717945014936,
+          "precision": 0.6581667815299793,
+          "recall_sensitivity_tpr": 0.7301223241590215,
+          "specificity_tnr": 0.8630212648439658,
+          "npv": 0.89850488786659,
+          "fpr": 0.13697873515603423,
+          "fnr": 0.2698776758409786,
+          "f1": 0.6922798115259152,
+          "f2": 0.7144994762831064,
+          "f1_macro": 0.7863427512341508,
+          "f1_weighted": 0.8304830595208517,
+          "g_mean": 0.7937953714191931,
+          "cohen_kappa": 0.5731311768135101,
+          "mcc": 0.5746183358388117,
+          "iou_churn": 0.529379157427938,
+          "iou_retained": 0.7863613487669854,
+          "mIoU": 0.6578702530974616,
+          "ap_churn(PR-AUC)": 0.7524439294693119,
+          "ap_retained": 0.9627712935719421,
+          "mAP": 0.857607611520627,
+          "roc_auc": 0.8982681089836978,
+          "gini": 0.7965362179673956,
+          "ks_statistic": 0.6401489527197364,
+          "log_loss": 0.41174628667267976,
+          "brier_score": 0.1357177952137672,
+          "ece_10bins": 0.13029103432335132,
+          "lift_top10pct": 3.179783017287902,
+          "recall_top10pct": 0.3180428134556575,
+          "lift_top20pct": 2.7555571580103093,
+          "recall_top20pct": 0.5512232415902141,
+          "lift_top30pct": 2.4561785486102066,
+          "recall_top30pct": 0.7370030581039755,
+          "tn": 3125,
+          "fp": 496,
+          "fn": 353,
+          "tp": 955,
+          "confusion_matrix": [
+            [
+              3125,
+              496
+            ],
+            [
+              353,
+              955
+            ]
+          ]
+        },
+        "val": {
+          "threshold": 0.63,
+          "accuracy": 0.8226950354609929,
+          "balanced_accuracy": 0.7836650630768278,
+          "precision": 0.655,
+          "recall_sensitivity_tpr": 0.7005347593582888,
+          "specificity_tnr": 0.8667953667953668,
+          "npv": 0.8891089108910891,
+          "fpr": 0.13320463320463322,
+          "fnr": 0.2994652406417112,
+          "f1": 0.6770025839793282,
+          "f2": 0.6909282700421941,
+          "f1_macro": 0.7774064728303288,
+          "f1_weighted": 0.8245464546880327,
+          "g_mean": 0.7792434046502236,
+          "cohen_kappa": 0.5550029035271542,
+          "mcc": 0.5555982154913474,
+          "iou_churn": 0.51171875,
+          "iou_retained": 0.7822299651567944,
+          "mIoU": 0.6469743575783973,
+          "ap_churn(PR-AUC)": 0.6860440405933997,
+          "ap_retained": 0.9446672371548831,
+          "mAP": 0.8153556388741414,
+          "roc_auc": 0.8641267317737906,
+          "gini": 0.7282534635475812,
+          "ks_statistic": 0.5937790349555055,
+          "log_loss": 0.452111960284016,
+          "brier_score": 0.15003037551837592,
+          "ece_10bins": 0.12477512766230613,
+          "lift_top10pct": 2.8006111535523304,
+          "recall_top10pct": 0.27807486631016043,
+          "lift_top20pct": 2.7807486631016043,
+          "recall_top20pct": 0.5561497326203209,
+          "lift_top30pct": 2.3651750580163458,
+          "recall_top30pct": 0.7112299465240641,
+          "tn": 449,
+          "fp": 69,
+          "fn": 56,
+          "tp": 131,
+          "confusion_matrix": [
+            [
+              449,
+              69
+            ],
+            [
+              56,
+              131
+            ]
+          ]
+        },
+        "test": {
+          "threshold": 0.63,
+          "accuracy": 0.7835344215755855,
+          "balanced_accuracy": 0.7450773721873466,
+          "precision": 0.5807962529274004,
+          "recall_sensitivity_tpr": 0.6631016042780749,
+          "specificity_tnr": 0.8270531400966183,
+          "npv": 0.8716904276985743,
+          "fpr": 0.17294685990338166,
+          "fnr": 0.33689839572192515,
+          "f1": 0.6192259675405742,
+          "f2": 0.6448257930317213,
+          "f1_macro": 0.7340056461401434,
+          "f1_weighted": 0.7878518970658461,
+          "g_mean": 0.7405540250523841,
+          "cohen_kappa": 0.46893463154941906,
+          "mcc": 0.4709442570784552,
+          "iou_churn": 0.4484629294755877,
+          "iou_retained": 0.7372954349698536,
+          "mIoU": 0.5928791822227206,
+          "ap_churn(PR-AUC)": 0.6582434839717205,
+          "ap_retained": 0.9349489184277102,
+          "mAP": 0.7965962011997154,
+          "roc_auc": 0.8439639360355473,
+          "gini": 0.6879278720710946,
+          "ks_statistic": 0.5320571443333592,
+          "log_loss": 0.47777787982992953,
+          "brier_score": 0.16048647227558974,
+          "ece_10bins": 0.12827061647165902,
+          "lift_top10pct": 2.8589335153790723,
+          "recall_top10pct": 0.28609625668449196,
+          "lift_top20pct": 2.5516649599878636,
+          "recall_top20pct": 0.5106951871657754,
+          "lift_top30pct": 2.190958394963401,
+          "recall_top30pct": 0.6577540106951871,
+          "tn": 856,
+          "fp": 179,
+          "fn": 126,
+          "tp": 248,
+          "confusion_matrix": [
+            [
+              856,
+              179
+            ],
+            [
+              126,
+              248
+            ]
+          ]
+        }
+      },
+      "cross_validation": {
+        "accuracy": {
+          "mean": 0.7890025844050206,
+          "std": 0.0054296320306921695
+        },
+        "balanced_accuracy": {
+          "mean": 0.7440541108763234,
+          "std": 0.012986042496834433
+        },
+        "precision": {
+          "mean": 0.5939489447117695,
+          "std": 0.01053847580467867
+        },
+        "recall_sensitivity_tpr": {
+          "mean": 0.6482846363078003,
+          "std": 0.033187478267922295
+        },
+        "specificity_tnr": {
+          "mean": 0.8398235854448466,
+          "std": 0.010236336756915569
+        },
+        "f1": {
+          "mean": 0.6195787145799809,
+          "std": 0.016249900428779114
+        },
+        "f2": {
+          "mean": 0.6363940388677616,
+          "std": 0.025724266261929373
+        },
+        "g_mean": {
+          "mean": 0.7375911489784672,
+          "std": 0.015466405506097756
+        },
+        "cohen_kappa": {
+          "mean": 0.4740414642867609,
+          "std": 0.018560722551393224
+        },
+        "mcc": {
+          "mean": 0.4751938324654543,
+          "std": 0.019521421815728947
+        },
+        "iou_churn": {
+          "mean": 0.4489942980862975,
+          "std": 0.0171215136857106
+        },
+        "mIoU": {
+          "mean": 0.5970805797455594,
+          "std": 0.01010453087769727
+        },
+        "ap_churn(PR-AUC)": {
+          "mean": 0.6567793298775759,
+          "std": 0.02007610790548706
+        },
+        "mAP": {
+          "mean": 0.7951413485560204,
+          "std": 0.013002697176144126
+        },
+        "roc_auc": {
+          "mean": 0.8394591065613893,
+          "std": 0.012493241295773347
+        },
+        "gini": {
+          "mean": 0.6789182131227788,
+          "std": 0.024986482591546698
+        },
+        "ks_statistic": {
+          "mean": 0.5306976815810953,
+          "std": 0.020812456218993098
+        },
+        "log_loss": {
+          "mean": 0.48029584198952835,
+          "std": 0.013763357691261465
+        },
+        "brier_score": {
+          "mean": 0.16133236334738943,
+          "std": 0.005426418057457539
+        },
+        "ece_10bins": {
+          "mean": 0.12563821192705898,
+          "std": 0.009968518679944607
+        },
+        "lift_top10pct": {
+          "mean": 2.8219859484239835,
+          "std": 0.14102134462092134
+        },
+        "recall_top20pct": {
+          "mean": 0.4923488637360709,
+          "std": 0.012180033801622716
+        }
+      },
+      "xai": {
+        "explainer": "TreeExplainer",
+        "output_scale": "log-odds",
+        "fidelity_additivity_mae": 5.197675818635616e-07,
+        "fidelity_additivity_max_err": 3.337860107421875e-06,
+        "fidelity_score(1-MAE)": 0.999999463558197,
+        "fidelity_corr_with_model_output": 0.9999999999999356,
+        "sparsity_n_features_for_80pct_importance": 11,
+        "top5_features": [
+          "Contract_Month-to-month",
+          "tenure",
+          "MonthlyCharges",
+          "OnlineSecurity_No",
+          "TotalCharges"
+        ],
+        "spearman_shap_vs_native_importance": 0.7624470588235294,
+        "stability_index_mean(||dphi||/||eps||)": 3.494564328731214,
+        "stability_median": 1.9874480984148957,
+        "stability_cosine_similarity_mean": 0.9664337038993835,
+        "stability_noise_sigma": 0.05,
+        "stability_n_samples": 300,
+        "risk_group_summary": [
+          {
+            "risk_group": "Low",
+            "count": 656,
+            "actual_churn_rate": 0.051829268292682924
+          },
+          {
+            "risk_group": "Medium",
+            "count": 286,
+            "actual_churn_rate": 0.25524475524475526
+          },
+          {
+            "risk_group": "High",
+            "count": 467,
+            "actual_churn_rate": 0.5717344753747323
+          }
+        ]
+      },
+      "history_summary": {
+        "x_label": "boosting round",
+        "n_points": 200,
+        "best_val_loss": 0.4521119612407811,
+        "best_val_at": 200,
+        "final_train_loss": 0.4117462861331451
+      }
+    }
+  }
+}

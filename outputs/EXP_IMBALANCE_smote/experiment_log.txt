@@ -1,0 +1,138 @@
+
+==============================================================================
+EXPERIMENT LOG - EXP_IMBALANCE_smote
+==============================================================================
+
+Lệnh chạy : python run_experiment.py --model-name all --imbalance smote --run-xai --cv-folds 5 --tune-threshold --exp-name EXP_IMBALANCE_smote
+Bắt đầu   : 2026-11-17 09:32:59
+Thời gian : 124.0s
+
+------------------------------------------------------------------------------
+MÔI TRƯỜNG
+------------------------------------------------------------------------------
+
+  python: 3.12.4
+  platform: Windows-11-10.0.26200-SP0
+  numpy: 2.5.5
+  pandas: 3.1.1
+  sklearn: 1.9.1
+  xgboost: 3.4.1
+  shap: 0.54.1
+  imblearn: 0.14.2
+  matplotlib: 3.11.2
+  scipy: 1.18.1
+
+------------------------------------------------------------------------------
+THAM SỐ DÒNG LỆNH
+------------------------------------------------------------------------------
+
+  data_path: data/Telco-Customer-Churn.csv
+  target: Churn
+  id_col: customerID
+  test_size: 0.200000
+  val_size: 0.100000
+  random_state: 42
+  impute: zero
+  imbalance: smote
+  model_name: all
+  n_estimators: 200
+  max_depth: 4
+  min_samples_leaf: 5
+  learning_rate: 0.050000
+  mlp_lr: 0.001000
+  scale_pos_weight: None
+  subsample: 0.800000
+  colsample_bytree: 0.800000
+  reg_lambda: 1.000000
+  C: 1.000000
+  k_neighbors: 15
+  hidden_sizes: 64,32
+  epochs: 100
+  batch_size: 128
+  threshold: 0.500000
+  tune_threshold: True
+  cv_folds: 5
+  bins: 30
+  run_xai: True
+  xai_index: 0
+  xai_sample: 300
+  xai_noise: 0.050000
+  output_dir: outputs
+  exp_name: EXP_IMBALANCE_smote
+  run_eda: False
+  save_model: False
+  n_jobs: -1
+
+------------------------------------------------------------------------------
+DỮ LIỆU
+------------------------------------------------------------------------------
+
+  dataset_name: Telco Customer Churn (IBM sample data / Kaggle)
+  file: data/Telco-Customer-Churn.csv
+  file_md5: 3b0bfab28a8101b4e4fdd08025a5c235
+  n_samples: 7043
+  n_raw_input_features: 19
+  n_features_after_encoding: 40
+  raw_feature_groups:
+    numeric_scaled: ['tenure', 'MonthlyCharges', 'TotalCharges']
+    categorical_onehot: ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod']
+    passthrough: ['SeniorCitizen']
+  n_missing_TotalCharges_blank: 11
+  imputation: zero
+  class_distribution_total:
+    n: 7043
+    retained(0): 5174
+    churned(1): 1869
+    churn_rate: 0.265400
+  imbalance_ratio_retained_to_churn: 2.768300
+  split:
+    strategy: stratified hold-out
+    test_size: 0.200000
+    val_size: 0.100000
+    random_state: 42
+    train:
+      n: 4929
+      retained(0): 3621
+      churned(1): 1308
+      churn_rate: 0.265400
+    val:
+      n: 705
+      retained(0): 518
+      churned(1): 187
+      churn_rate: 0.265200
+    test:
+      n: 1409
+      retained(0): 1035
+      churned(1): 374
+      churn_rate: 0.265400
+  leakage_policy: encoder/scaler/SMOTE fit on train only
+  smote_train_after:
+    n: 7242
+    churned(1): 3621
+
+------------------------------------------------------------------------------
+BẢNG TỔNG HỢP (TEST)
+------------------------------------------------------------------------------
+
+              model  threshold  accuracy  balanced_accuracy  precision  recall_sensitivity_tpr  specificity_tnr     f1     f2  g_mean  cohen_kappa    mcc  iou_churn   mIoU  ap_churn(PR-AUC)    mAP  roc_auc   gini  ks_statistic  log_loss  brier_score  ece_10bins  lift_top10pct  recall_top20pct  train_accuracy  train_f1  train_roc_auc  gap_f1(train-test)  gap_auc(train-test)  train_seconds  cv_accuracy_mean  cv_accuracy_std  cv_f1_mean  cv_f1_std  cv_roc_auc_mean  cv_roc_auc_std  cv_mcc_mean  cv_mcc_std  xai_fidelity  xai_stability_cos  xai_sparsity_k80
+Logistic Regression       0.60    0.7679             0.7455     0.5495                  0.6979           0.7932 0.6148 0.6621  0.7440       0.4521 0.4587     0.4439 0.5795            0.6323 0.7842   0.8410 0.6819        0.5270    0.4889       0.1658      0.1379         2.8055           0.5000          0.7827    0.6323         0.8473              0.0175               0.0063         2.0357            0.7776           0.0054      0.6241     0.0160           0.8412          0.0104       0.4740      0.0212           1.0             0.9986              16.0
+      Decision Tree       0.55    0.7771             0.7254     0.5750                  0.6150           0.8357 0.5943 0.6065  0.7169       0.4409 0.4414     0.4228 0.5782            0.5326 0.7223   0.8090 0.6180        0.4857    0.5179       0.1755      0.1307         2.2711           0.4492          0.7823    0.6001         0.8246              0.0058               0.0156         0.5741            0.7626           0.0283      0.6062     0.0224           0.8067          0.0209       0.4491      0.0353           1.0             0.9983               4.0
+      Random Forest       0.52    0.7495             0.7492     0.5195                  0.7487           0.7498 0.6134 0.6880  0.7492       0.4369 0.4528     0.4423 0.5648            0.6197 0.7767   0.8343 0.6687        0.5063    0.4945       0.1659      0.1460         2.7521           0.5027          0.7596    0.6284         0.8474              0.0150               0.0131         3.1288            0.7537           0.0114      0.6165     0.0203           0.8366          0.0109       0.4585      0.0302           1.0             0.9991              12.0
+            XGBoost       0.47    0.7750             0.7418     0.5640                  0.6711           0.8126 0.6129 0.6466  0.7385       0.4560 0.4595     0.4419 0.5841            0.6526 0.7942   0.8428 0.6856        0.5325    0.4307       0.1422      0.0498         2.7788           0.5027          0.8127    0.6702         0.8802              0.0573               0.0374         1.0852            0.7864           0.0130      0.6222     0.0240           0.8386          0.0149       0.4763      0.0327           1.0             0.9717              13.0
+   MLP (Neural Net)       0.13    0.6771             0.7145     0.4400                  0.7941           0.6348 0.5663 0.6840  0.7100       0.3412 0.3791     0.3949 0.4929            0.5552 0.7293   0.7807 0.5614        0.4445    0.6543       0.1828      0.1367         2.3246           0.4278          0.7813    0.7040         0.9465              0.1378               0.1657         6.7974            0.6675           0.0122      0.5534     0.0169           0.7708          0.0194       0.3579      0.0280           NaN                NaN               NaN
+          SVM (RBF)       0.55    0.7644             0.7406     0.5443                  0.6898           0.7913 0.6085 0.6548  0.7388       0.4433 0.4497     0.4373 0.5744            0.5948 0.7580   0.8228 0.6455        0.5180    0.4953       0.1642      0.1063         2.4581           0.4840          0.8048    0.6730         0.8765              0.0645               0.0537         9.2090            0.7709           0.0109      0.6135     0.0181           0.8154          0.0127       0.4583      0.0257           NaN                NaN               NaN
+               k-NN       0.66    0.7502             0.7079     0.5250                  0.6176           0.7981 0.5676 0.5966  0.7021       0.3935 0.3961     0.3962 0.5487            0.5766 0.7434   0.7996 0.5993        0.4600    0.7701       0.1976      0.1762         2.4849           0.4679          0.9980    0.9962         1.0000              0.4286               0.2003         0.0081            0.7419           0.0182      0.5585     0.0243           0.7829          0.0154       0.3819      0.0362           NaN                NaN               NaN
+
+------------------------------------------------------------------------------
+ĐỘ ĐO KHÔNG ÁP DỤNG
+------------------------------------------------------------------------------
+
+  CMC: chỉ dùng cho bài toán nhận dạng/re-identification (xếp hạng khớp danh tính), không phải phân loại nhị phân Churn
+  PSNR/SSIM/BER/Payload: độ đo cho ẩn tin (steganography) trên ảnh/âm thanh, không liên quan dữ liệu bảng Churn
+  IoU/mAP (detection): dạng detection (bounding box) không áp dụng; dùng IoU/AP phiên bản phân loại nhị phân
+
+------------------------------------------------------------------------------
+THƯ MỤC KẾT QUẢ
+------------------------------------------------------------------------------
+
+Xem artifact_index.csv: mỗi hình/bảng ↔ file code:hàm:dòng sinh ra nó.

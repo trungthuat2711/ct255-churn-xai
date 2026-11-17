@@ -1,0 +1,217 @@
+
+==============================================================================
+MODEL LOG: Decision Tree  |  EXP_SEED2
+==============================================================================
+
+Lệnh chạy      : python run_experiment.py --model-name all --cv-folds 5 --tune-threshold --random-state 2 --exp-name EXP_SEED2
+Thời điểm      : 2026-11-17 10:34:09
+
+------------------------------------------------------------------------------
+1. THÔNG TIN DỮ LIỆU
+------------------------------------------------------------------------------
+
+  dataset_name: Telco Customer Churn (IBM sample data / Kaggle)
+  file: data/Telco-Customer-Churn.csv
+  file_md5: 3b0bfab28a8101b4e4fdd08025a5c235
+  n_samples: 7043
+  n_raw_input_features: 19
+  n_features_after_encoding: 40
+  feature_names: ['tenure', 'MonthlyCharges', 'TotalCharges', 'gender_Male', 'Partner_Yes', 'Dependents_Yes', 'PhoneService_Yes', 'MultipleLines_No', 'MultipleLines_No phone service', 'MultipleLines_Yes', 'InternetService_DSL', 'InternetService_Fiber optic', 'InternetService_No', 'OnlineSecurity_No', 'OnlineSecurity_No internet service', 'OnlineSecurity_Yes', 'OnlineBackup_No', 'OnlineBackup_No internet service', 'OnlineBackup_Yes', 'DeviceProtection_No', 'DeviceProtection_No internet service', 'DeviceProtection_Yes', 'TechSupport_No', 'TechSupport_No internet service', 'TechSupport_Yes', 'StreamingTV_No', 'StreamingTV_No internet service', 'StreamingTV_Yes', 'StreamingMovies_No', 'StreamingMovies_No internet service', 'StreamingMovies_Yes', 'Contract_Month-to-month', 'Contract_One year', 'Contract_Two year', 'PaperlessBilling_Yes', 'PaymentMethod_Bank transfer (automatic)', 'PaymentMethod_Credit card (automatic)', 'PaymentMethod_Electronic check', 'PaymentMethod_Mailed check', 'SeniorCitizen']
+  raw_feature_groups:
+    numeric_scaled: ['tenure', 'MonthlyCharges', 'TotalCharges']
+    categorical_onehot: ['gender', 'Partner', 'Dependents', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod']
+    passthrough: ['SeniorCitizen']
+  n_missing_TotalCharges_blank: 11
+  imputation: zero
+  class_distribution_total:
+    n: 7043
+    retained(0): 5174
+    churned(1): 1869
+    churn_rate: 0.265400
+  imbalance_ratio_retained_to_churn: 2.768300
+  split:
+    strategy: stratified hold-out
+    test_size: 0.200000
+    val_size: 0.100000
+    random_state: 2
+    train:
+      n: 4929
+      retained(0): 3621
+      churned(1): 1308
+      churn_rate: 0.265400
+    val:
+      n: 705
+      retained(0): 518
+      churned(1): 187
+      churn_rate: 0.265200
+    test:
+      n: 1409
+      retained(0): 1035
+      churned(1): 374
+      churn_rate: 0.265400
+  leakage_policy: encoder/scaler/SMOTE fit on train only
+
+------------------------------------------------------------------------------
+2. KIẾN TRÚC MÔ HÌNH
+------------------------------------------------------------------------------
+
+  model_type: Decision Tree
+  sklearn_class: DecisionTreeClassifier
+  n_input_features: 40
+  depth: 4
+  n_leaves: 16
+  node_count: 31
+
+------------------------------------------------------------------------------
+3. SIÊU THAM SỐ (estimator.get_params)
+------------------------------------------------------------------------------
+
+  ccp_alpha: 0.000000
+  class_weight: balanced
+  criterion: gini
+  max_depth: 4
+  max_features: None
+  max_leaf_nodes: None
+  min_impurity_decrease: 0.000000
+  min_samples_leaf: 5
+  min_samples_split: 2
+  min_weight_fraction_leaf: 0.000000
+  monotonic_cst: None
+  random_state: 2
+  splitter: best
+
+------------------------------------------------------------------------------
+4. THAM SỐ DÒNG LỆNH (toàn bộ)
+------------------------------------------------------------------------------
+
+  data_path: data/Telco-Customer-Churn.csv
+  target: Churn
+  id_col: customerID
+  test_size: 0.200000
+  val_size: 0.100000
+  random_state: 2
+  impute: zero
+  imbalance: class_weight
+  model_name: all
+  n_estimators: 200
+  max_depth: 4
+  min_samples_leaf: 5
+  learning_rate: 0.050000
+  mlp_lr: 0.001000
+  scale_pos_weight: None
+  subsample: 0.800000
+  colsample_bytree: 0.800000
+  reg_lambda: 1.000000
+  C: 1.000000
+  k_neighbors: 15
+  hidden_sizes: 64,32
+  epochs: 100
+  batch_size: 128
+  threshold: 0.500000
+  tune_threshold: True
+  cv_folds: 5
+  bins: 30
+  run_xai: False
+  xai_index: 0
+  xai_sample: 300
+  xai_noise: 0.050000
+  output_dir: outputs
+  exp_name: EXP_SEED2
+  run_eda: False
+  save_model: False
+  n_jobs: -1
+
+------------------------------------------------------------------------------
+5. NGƯỠNG & THỜI GIAN
+------------------------------------------------------------------------------
+
+  threshold: 0.480000
+  source: tuned: max F1 on validation set
+  train_seconds: 0.758074
+  inference_seconds_per_sample: 0.000005
+  total_seconds: 7.946470
+
+------------------------------------------------------------------------------
+6. KẾT QUẢ TRAIN / VAL / TEST
+------------------------------------------------------------------------------
+
+metric                             train         val        test
+accuracy                          0.7659      0.7433      0.7651
+balanced_accuracy                 0.7581      0.7296      0.7658
+precision                         0.5431      0.5117      0.5405
+recall_sensitivity_tpr            0.7416      0.7005      0.7674
+specificity_tnr                   0.7746      0.7587      0.7643
+f1                                0.6270      0.5914      0.6343
+f2                                0.6911      0.6524      0.7079
+g_mean                            0.7579      0.7290      0.7658
+cohen_kappa                       0.4623      0.4108      0.4688
+mcc                               0.4742      0.4216      0.4844
+iou_churn                         0.4567      0.4199      0.4644
+mIoU                              0.5826      0.5523      0.5847
+ap_churn(PR-AUC)                  0.6087      0.5563      0.6216
+mAP                               0.7680      0.7343      0.7747
+roc_auc                           0.8394      0.8073      0.8425
+gini                              0.6788      0.6146      0.6850
+ks_statistic                      0.5177      0.4592      0.5435
+log_loss                          0.4930      0.5399      0.4873
+brier_score                       0.1674      0.1788      0.1651
+ece_10bins                        0.1508      0.1468      0.1520
+lift_top10pct                     2.7364      2.5313      2.7788
+recall_top20pct                   0.4862      0.4599      0.4920
+tn                                  2805         393         791
+fp                                   816         125         244
+fn                                   338          56          87
+tp                                   970         131         287
+
+------------------------------------------------------------------------------
+7. MA TRẬN NHẦM LẪN [[TN, FP],[FN, TP]]
+------------------------------------------------------------------------------
+
+train: [[2805, 816], [338, 970]]
+val: [[393, 125], [56, 131]]
+test: [[791, 244], [87, 287]]
+
+------------------------------------------------------------------------------
+8. 5-FOLD CROSS-VALIDATION (trên tập train, mean ± std)
+------------------------------------------------------------------------------
+
+accuracy                    0.7188 ± 0.0210
+balanced_accuracy           0.7466 ± 0.0197
+precision                   0.4830 ± 0.0215
+recall_sensitivity_tpr      0.8058 ± 0.0481
+specificity_tnr             0.6874 ± 0.0351
+f1                          0.6033 ± 0.0217
+f2                          0.7101 ± 0.0315
+g_mean                      0.7435 ± 0.0196
+cohen_kappa                 0.4063 ± 0.0334
+mcc                         0.4391 ± 0.0342
+iou_churn                   0.4322 ± 0.0224
+mIoU                        0.5372 ± 0.0224
+ap_churn(PR-AUC)            0.5943 ± 0.0330
+mAP                         0.7567 ± 0.0210
+roc_auc                     0.8263 ± 0.0199
+gini                        0.6526 ± 0.0399
+ks_statistic                0.5071 ± 0.0359
+log_loss                    0.5175 ± 0.0308
+brier_score                 0.1729 ± 0.0084
+ece_10bins                  0.1514 ± 0.0065
+lift_top10pct               2.6854 ± 0.1437
+recall_top20pct             0.4832 ± 0.0257
+
+------------------------------------------------------------------------------
+9. TÓM TẮT QUÁ TRÌNH HUẤN LUYỆN
+------------------------------------------------------------------------------
+
+  x_label: max_depth (sweep)
+  n_points: 12
+  best_val_loss: 0.533605
+  best_val_at: 3
+  final_train_loss: 0.294194
+
+------------------------------------------------------------------------------
+11. ĐỘ ĐO KHÔNG ÁP DỤNG CHO BÀI TOÁN
+------------------------------------------------------------------------------
+
+  CMC: chỉ dùng cho bài toán nhận dạng/re-identification (xếp hạng khớp danh tính), không phải phân loại nhị phân Churn
+  PSNR/SSIM/BER/Payload: độ đo cho ẩn tin (steganography) trên ảnh/âm thanh, không liên quan dữ liệu bảng Churn
+  IoU/mAP (detection): dạng detection (bounding box) không áp dụng; dùng IoU/AP phiên bản phân loại nhị phân
