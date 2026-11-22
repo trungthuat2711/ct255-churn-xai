@@ -11,3 +11,5 @@
 2026-11-17 10:38:30 | EXP_SEED3 | all | python run_experiment.py --model-name all --cv-folds 5 --tune-threshold --random-state 3 --exp-name EXP_SEED3
 2026-11-17 10:40:45 | EXP_SEED4 | all | python run_experiment.py --model-name all --cv-folds 5 --tune-threshold --random-state 4 --exp-name EXP_SEED4
 2026-11-17 10:43:00 | EXP_SEED5 | all | python run_experiment.py --model-name all --cv-folds 5 --tune-threshold --random-state 5 --exp-name EXP_SEED5
+2026-11-22 12:58:25 | EXP_PROTO_8020 | all | python run_experiment.py --model-name all --test-size 0.2 --val-size 0 --threshold 0.5 --cv-folds 5 --random-state 42 --exp-name EXP_PROTO_8020
+2026-11-22 13:04:20 | EXP_PROTO_8020_NOWEIGHT | all | python run_experiment.py --model-name all --test-size 0.2 --val-size 0 --threshold 0.5 --imbalance none --cv-folds 5 --random-state 42 --exp-name EXP_PROTO_8020_NOWEIGHT
